@@ -15,7 +15,6 @@ var speed_up_factor = 1.05
 
 @onready var collision_shape_2d = $CollisionShape2D
   
-
 var start_position: Vector2
 
 func _ready():
@@ -28,6 +27,10 @@ func  _physics_process(delta):
 	if (!collision):
 		return
 		
+	var collider = collision.get_collider()
+	if collider is Brick:
+		collider.decrease_level()
+	
 	velocity = velocity.bounce(collision.get_normal())
 	
 func start_ball():
