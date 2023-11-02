@@ -1,6 +1,1 @@
-res://main.tscn
-res://puddle.tscn
-res://deathzone.tscn
-res://character_body_2d.tscn
-res://deathzone.gd
-res://rigid_body_2d.tscn
+res://Scenes/main.tscn
