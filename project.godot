@@ -14,6 +14,10 @@ config/name="BrickBreaker"
 run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 
+[autoload]
+
+LevelDefinitions="*res://Scripts/level_definitions.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"
