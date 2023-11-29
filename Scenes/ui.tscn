@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cthsrqj7moamg"]
+[gd_scene load_steps=8 format=3 uid="uid://cthsrqj7moamg"]
 
 [ext_resource type="FontFile" uid="uid://b4pqfbvte11k6" path="res://Assets/VT323-Regular.ttf" id="1_bhec8"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="1_plqj1"]
+[ext_resource type="AudioStream" uid="uid://bfycn4l5cotsc" path="res://Sounds/lose_sound.mp3" id="3_epis3"]
+[ext_resource type="AudioStream" uid="uid://c3lig6yn28gfu" path="res://Sounds/Win_sound.mp3" id="4_8ac1y"]
+[ext_resource type="AudioStream" uid="uid://b5kbwbmnd0h2j" path="res://Sounds/Next_level_two.mp3" id="4_abhbt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnogu"]
 bg_color = Color(0, 0.721569, 0.298039, 1)
@@ -99,6 +102,15 @@ vertical_alignment = 1
 [node name="GameLostButton" type="Button" parent="GameLostContainer/Panel/VBoxContainer"]
 layout_mode = 2
 text = "RESTART GAME"
+
+[node name="LostSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_epis3")
+
+[node name="LevelPassSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_abhbt")
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8ac1y")
 
 [connection signal="pressed" from="LevelWonContainer/Panel/VBoxContainer/LevelWonButton" to="." method="_on_level_won_button_pressed"]
 [connection signal="pressed" from="GameLostContainer/Panel/VBoxContainer/GameLostButton" to="." method="_on_game_lost_button_pressed"]

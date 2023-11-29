@@ -16,8 +16,10 @@ var start_position: Vector2
 var last_collider_id
 
 @onready var collision_shape_2d = $CollisionShape2D
-  
-
+@onready var ball_hit_paddle = $BallHitPaddle
+@onready var ball_hit_block = $BallHitBlock
+@onready var hit_side_walls = $BallHitWall
+@onready var background_music = $Music
 
 func _ready():
 	ui.set_lives(lives)
@@ -32,17 +34,23 @@ func  _physics_process(delta):
 	var collider = collision.get_collider()
 	if collider is Brick:
 		collider.decrease_level()
+		$BallHitBlock.play()
+		
+	if collider is Paddle:
+		$BallHitPaddle.play()
 		
 	if (collider is Brick or collider is Paddle):
 		ball_collision(collider)
 	else: 
 		velocity = velocity.bounce(collision.get_normal())
+		$BallHitWall.play()
 	
 func start_ball():
 	position = start_position
 	randomize()
 	
 	velocity = Vector2(randf_range(-1, 1), randf_range(-.1, -1)).normalized() * ball_speed
+	$Music.play()
 	
 func on_life_lost():
 	lives -= 1
@@ -52,6 +60,7 @@ func on_life_lost():
 		life_lost.emit()
 		reset_ball()
 		ui.set_lives(lives)
+	$Music.stop()
 		
 func reset_ball():
 	position = start_position  
