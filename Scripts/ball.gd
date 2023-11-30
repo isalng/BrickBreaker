@@ -20,6 +20,8 @@ var last_collider_id
 @onready var ball_hit_block = $BallHitBlock
 @onready var hit_side_walls = $BallHitWall
 @onready var background_music = $Music
+@onready var hit_wall_particle = $HitWallParticle
+@onready var hit_paddle_particle = $HitPaddleParticle
 
 func _ready():
 	ui.set_lives(lives)
@@ -38,12 +40,14 @@ func  _physics_process(delta):
 		
 	if collider is Paddle:
 		$BallHitPaddle.play()
+		hit_paddle_particle.emitting = true
 		
 	if (collider is Brick or collider is Paddle):
 		ball_collision(collider)
 	else: 
 		velocity = velocity.bounce(collision.get_normal())
 		$BallHitWall.play()
+		hit_wall_particle.emitting = true
 	
 func start_ball():
 	position = start_position

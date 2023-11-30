@@ -8,6 +8,7 @@ var level = 1
 
 @onready var sprite_2d = $Sprite2D
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var hit_brick_particle = $BrickParticle
 
 var sprites: Array[Texture2D] = [
 	preload("res://Assets/Brick-Yellow.png"),
@@ -27,6 +28,7 @@ func set_level(new_level: int):
 	sprite_2d.texture = sprites[new_level - 1]
 	
 func decrease_level():
+	hit_brick_particle.emitting = true
 	if level > 1:
 		set_level(level - 1)
 	else:

@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl8p7svb43s4c"]
+[gd_scene load_steps=6 format=3 uid="uid://cl8p7svb43s4c"]
 
 [ext_resource type="Script" path="res://brick.gd" id="1_1ugqt"]
 [ext_resource type="Texture2D" uid="uid://d06ws4g0pu0q0" path="res://Assets/Brick-Blue.png" id="1_8ed12"]
+[ext_resource type="Texture2D" uid="uid://cnjtgoe4wyo1p" path="res://Assets/star_08.png" id="3_33hgn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuovf"]
 size = Vector2(100, 24)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5npp3"]
+particle_flag_disable_z = true
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.3
+scale_max = 0.3
+color = Color(0.596078, 1, 0.764706, 1)
 
 [node name="Brick" type="RigidBody2D"]
 collision_layer = 8
@@ -19,3 +29,10 @@ texture = ExtResource("1_8ed12")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_iuovf")
+
+[node name="BrickParticle" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_5npp3")
+texture = ExtResource("3_33hgn")
+one_shot = true
