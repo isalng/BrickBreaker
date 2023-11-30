@@ -1,6 +1,6 @@
 extends Node
 
-var current_level = 3
+var current_level = 1
 
 var level_1 = [
 	[1,0,3,2,2,3,0,1],
