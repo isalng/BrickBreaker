@@ -21,13 +21,13 @@ func _on_game_lost_button_pressed():
 	get_tree().reload_current_scene()
 
 func on_level_won():
-	if LevelDefinitions.current_level == 2:
+	if LevelDefinitions.current_level == 3:
 		$WinSound.play()
 	else:
 		level_won_container.show()
 		$LevelPassSound.play()
 	
 func _on_level_won_button_pressed():
-	LevelDefinitions.current_level = 2
+	LevelDefinitions.current_level += 1
 	get_tree().reload_current_scene()
 	

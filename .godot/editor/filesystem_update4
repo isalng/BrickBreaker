@@ -6,7 +6,3 @@ res://Scenes/wall.tscn
 res://Scenes/death_zone.tscn
 res://Scenes/ui.tscn
 res://brick.tscn
-res://Scripts/ball.gd
-res://Scripts/ui.gd
-res://Scripts/level_definitions.gd
-res://brick.gd
