@@ -7,7 +7,7 @@ signal life_lost
 const VELCOCITY_LIMIT = 30
 
 @export var ball_speed = 15
-@export var lives = 10
+@export var lives = 5
 @export var death_zone: DeathZone
 @export var ui: UI
 
